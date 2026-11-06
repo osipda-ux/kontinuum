@@ -1,0 +1,94 @@
+/*
+  КОНТИНУУМ — всё, что меняется по ходу переговоров.
+  Вёрстку трогать не нужно: дописали строку — она появилась на сайте.
+*/
+window.CONTENT = {
+  event: {
+    // Время начала уточнить; обратный отсчёт идёт до этой минуты (московское время).
+    start: "2026-12-05T00:00:00+03:00",
+    city: "Москва",
+    venue: "Конгресс-отель «Бородино»",   // Пусто — строка на сайте не показывается.
+    venueAddress: "Русаковская ул., 13, стр. 5",
+    mapUrl: "https://maps.google.com/maps/place//data=!4m2!3m1!1s0x46b53583a00afb89:0x25440bd13bd7b328",
+  },
+
+  // Тур по площадке с голосом Гульнары (собран скриптом tour_build.py): обложка карточки, кадр плеера, файл.
+  venueTour: { src: "assets/venue-tour.mp4", poster: "assets/venue-tour.jpg", cover: "assets/venue-film.jpg", duration: "С Гульнарой Мишкиной · 1:33" },
+
+  // Пространства площадки: короткие беззвучные петли. Пусто — блок «Площадка» скрыт.
+  venueSpaces: [
+    { src: "assets/loop-hall.mp4",   poster: "assets/loop-hall.jpg",   label: "Большой зал",   title: "Конференция и выпускной", text: "Сцена, амфитеатр и VIP-ряды для гостей и партнёров." },
+    { src: "assets/loop-lunch.mp4",  poster: "assets/loop-lunch.jpg",  label: "Банкетный зал", title: "Обед",                    text: "Обед для гостей между конференцией и выпускным." },
+    { src: "assets/loop-vip.mp4",    poster: "assets/loop-vip.jpg",    label: "Зелёный зал",   title: "VIP-кофе-брейк",          text: "Классический зал с портретом Дениса Давыдова." },
+    { src: "assets/loop-dinner.mp4", poster: "assets/loop-dinner.jpg", label: "Ресторан",      title: "Закрытый ужин",           text: "Ужин с VIP-гостями и интервью для прессы." },
+    { src: "assets/loop-foyer.mp4",  poster: "assets/loop-foyer.jpg",  label: "Фойе",          title: "Между залами",            text: "Открытое пространство с колоннами и баром." },
+  ],
+
+  // Связь. Телефон на сайте не показываем — только мессенджеры.
+  contact: {
+    personName: "Гульнара Мишкина",       // Заменить на стратегического директора, когда он появится.
+    personRole: "Автор и продюсер проекта",
+    personPhoto: "assets/gulnara-face.webp",
+    telegram: "GulyaMishkina",            // без @
+    whatsapp: "",                         // номер в формате 79991234567; пусто — кнопка скрыта
+    formEndpoint: "",                     // адрес приёма заявок (Formspree, бот и т. п.); пусто — заявка уходит в Telegram
+  },
+
+  // Для формы по закону о персональных данных (152-ФЗ) нужны оператор и политика.
+  legal: {
+    operator: "",      // например: ИП Мишкина Г. · ИНН 000000000000
+    privacyUrl: "",    // ссылка на текст политики конфиденциальности
+  },
+
+  // Сколько мест ещё свободно.
+  seats: { tables: 10, tablesTotal: 10, tv: 4, tvTotal: 4 },
+
+  // Подтверждённые эксперты и звёзды. Пример строки:
+  // { name: "Имя Фамилия", role: "Регалии одной строкой", photo: "assets/name.webp", url: "https://..." }
+  people: [],
+
+  // Подтверждённые партнёры. Логотип лучше в SVG или PNG на прозрачном фоне.
+  // group: "media" и "tv" — в блок «Где выйдет „Континуум“»; "clinic" | "brand" | "partner" — в «Экосистему».
+  // role — подпись под логотипом, как на крупных форумах: «Генеральный партнёр», «Партнёр по диагностике».
+  // { name: "Название", logo: "assets/logo-name.svg", group: "media", role: "Информационный партнёр", url: "https://..." }
+  logos: [
+    { name: "Music Box Gold", logo: "assets/logo-musicbox-gold.png", group: "tv", role: "Телеканал" },
+  ],
+
+  /* ── Только для лендинга билетов (tickets.html) ── */
+
+  // Цены. Пусто — на сайте «Стоимость сообщим по заявке». Пример: "25 000 ₽".
+  // link — ссылка на оплату; пусто — кнопка ведёт к форме заявки.
+  tickets: {
+    standard: { price: "", oldPrice: "", link: "" },
+    vip:      { price: "", oldPrice: "", link: "", seatsTotal: 106, seatsLeft: null },
+  },
+
+  // Телеканал, который снимает событие.
+  tv: {
+    platforms: ["Яндекс Плюс", "Кинопоиск", "Okko", "Смарт ТВ", "Wink", "Kion", "Спутник"],
+    episodes: [
+      { title: "Премьеры со звёздами", note: "Регина Тодоренко, Екатерина Шпица, Сергей Жуков и другие", parts: [
+        { label: "Премьера", url: "https://disk.yandex.ru/i/szb2Zre-qERNmA" },
+        { label: "«Руки вверх»", url: "https://disk.yandex.ru/i/BKn-SmSYLHzWgQ" },
+        { label: "«Со второго взгляда»", url: "https://disk.yandex.ru/i/OvY-ewVFxGhnYQ" }] },
+      { title: "Фестиваль бьюти-индустрии на ВДНХ", url: "https://disk.yandex.ru/i/lfu9SekSmx553Q" },
+      { title: "День рождения Женского бизнес-клуба", url: "https://disk.yandex.ru/i/1ZwE8q8zL2pkFg" },
+      { title: "Бьюти-форум в Барвихе", url: "https://disk.yandex.ru/i/Ydy31qn6AhO2Aw" },
+      { title: "Премьера «Руки вверх»", url: "https://disk.yandex.ru/i/mW-US_GmOWni0w" },
+      { title: "Премия-бал «ГЕТ Курс»", url: "https://disk.yandex.ru/i/RZYfAIuiQacLEg" },
+      { title: "«Московская неделя моды» в Манеже", url: "https://disk.yandex.ru/i/_1lqArs6I20Qiw" },
+      { title: "Премьера «Любовь со второго взгляда»", url: "https://disk.yandex.ru/i/E_-tveTU-BiAXw" },
+    ],
+  },
+
+  // Артисты вечера. Пример: { name: "Имя", role: "Певица", photo: "assets/artist.webp" }
+  artists: [],
+
+  // Команда. Имена и фото добавить, когда будут; пока показываются роли.
+  team: [
+    { role: "Главный режиссёр",        text: "Визуальный масштаб, свет и динамика сцены.",                     name: "", photo: "" },
+    { role: "Операторы-постановщики",  text: "Кинематографичная картинка трансляции и записи.",              name: "", photo: "" },
+    { role: "Режиссёр монтажа",        text: "Лучшие моменты в итоговом фильме и репортажах.",               name: "", photo: "" },
+  ],
+};
