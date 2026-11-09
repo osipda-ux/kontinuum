@@ -1020,6 +1020,16 @@ a.eps__t:hover{color:var(--accent)}
 .paynote{margin-top:clamp(18px,2vw,26px);max-width:72ch;font-size:15.5px;line-height:1.55;color:var(--ink-2)}
 .paynote a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 a.tix__opt{text-decoration:none;color:inherit}
+
+/* легенды: 4+ портретов — плитка «+100» дотягивает ряд */
+.leg{align-items:center}
+@media (min-width:981px){
+  .leg__more{grid-column:span var(--span,1)}
+  .leg__more--wide{aspect-ratio:auto;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;align-content:center;column-gap:clamp(20px,2vw,32px);row-gap:12px;padding-inline:clamp(24px,2.6vw,40px)}
+  .leg__more--wide b{grid-row:1/3;align-self:center;font-size:clamp(72px,7vw,112px)}
+  .leg__more--wide span{align-self:end;max-width:22ch;font-size:18px}
+  .leg__more--wide i{align-self:start}
+}
 </style>
 
 <div class="vignette" aria-hidden="true"></div>
@@ -1101,7 +1111,7 @@ a.tix__opt{text-decoration:none;color:inherit}
       <div class="leg">
         <div class="leg__t" data-reveal>
           <h2>Здесь каждое имя — <em>легенда</em></h2>
-          <p class="lead">«Континуум» не для всех. В одном зале соберутся те, кто создал своё направление и ведёт за собой индустрию здоровья и долголетия. Это шанс <mark class="hl">прикоснуться к легенде</mark> — и оказаться среди лучших.</p>
+          <p class="lead">«Континуум» не для всех. В одном зале соберутся те, кто создал своё направление и ведёт за собой других: в науке, психологии, бизнесе и технологиях. Это шанс <mark class="hl">прикоснуться к легенде</mark> — и оказаться среди лучших.</p>
         </div>
         <div class="leg__l" id="legendList"></div>
       </div>
@@ -1254,7 +1264,7 @@ a.tix__opt{text-decoration:none;color:inherit}
     <div class="wrap">
       <div class="head">
         <h2 data-reveal>Кто будет <em>рядом с вами</em></h2>
-        <p class="lead" data-reveal>На одной площадке собираются те, кто формирует индустрию: <mark class="hl">ведущие клиники, лаборатории, бренды БАДов и BioTech-компании</mark>.</p>
+        <p class="lead" data-reveal>Там, где собираются лидеры, рождается будущее. <mark class="hl">Будьте в его эпицентре</mark>: на одной площадке — ведущие клиники, лаборатории, бренды БАДов и BioTech-компании.</p>
       </div>
       <div class="eco">
         <div class="eco__count" data-reveal>
@@ -1280,7 +1290,7 @@ a.tix__opt{text-decoration:none;color:inherit}
   <aside class="tband" aria-label="Билеты">
     <div class="wrap">
       <div class="tband__in" data-reveal>
-        <p class="tband__t"><span class="tband__spk">Темченко, Филяев</span> и ещё сто лидеров индустрии — в одном зале 5 декабря.</p>
+        <p class="tband__t">Весь цвет индустрии — <em>в одном зале 5 декабря</em>: <span class="tband__spk">Темченко, Филяев</span> и ещё сто лидеров.</p>
         <p class="tband__p">Билеты <b class="tband__from">от 6 400 ₽</b></p>
         <a class="btn btn--fill" href="#tickets" data-magnet><span>Купить билет</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
       </div>
@@ -1475,8 +1485,8 @@ a.tix__opt{text-decoration:none;color:inherit}
   <section id="tickets" data-shape="ribbonSoft">
     <div class="wrap">
       <div class="head">
-        <h2 data-reveal>Выберите <em>свой пакет</em></h2>
-        <p class="lead" data-reveal>Количество мест ограничено. <mark class="hl">Первые ряды и столы у сцены</mark> уже бронируют спикеры, представители индустрии и партнёры.</p>
+        <h2 data-reveal>Ваш билет <em>в высшую лигу</em></h2>
+        <p class="lead" data-reveal>Выберите свой пакет. Количество мест ограничено. <mark class="hl">Первые ряды и столы у сцены</mark> уже бронируют спикеры, представители индустрии и партнёры.</p>
       </div>
       <div class="every" data-reveal>
         <p class="every__t">Входит во все пакеты</p>
@@ -1510,7 +1520,7 @@ a.tix__opt{text-decoration:none;color:inherit}
         </details>
         <details data-reveal>
           <summary>Как оплатить участие?</summary>
-          <p>В разделе <a href="#tickets">«Выберите свой пакет»</a> нажмите «Купить» у нужного пакета, а у «Импульса» — на формат питания. Откроется защищённая страница оплаты Продамус, чек придёт на e&#8209;mail вместе с подтверждением участия. Нужен счёт для компании — <a href="#contact">напишите нам</a>.</p>
+          <p>В разделе <a href="#tickets">«Ваш билет в высшую лигу»</a> нажмите «Купить» у нужного пакета, а у «Импульса» — на формат питания. Откроется защищённая страница оплаты Продамус, чек придёт на e&#8209;mail вместе с подтверждением участия. Нужен счёт для компании — <a href="#contact">напишите нам</a>.</p>
         </details>
       </div>
     </div>
@@ -1589,7 +1599,7 @@ a.tix__opt{text-decoration:none;color:inherit}
   <button class="vmodal__x" type="button" data-close aria-label="Закрыть видео"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
 </div>
 
-<script src="content.js?v=72b238c535"></script>
+<script src="content.js?v=e1cda85896"></script>
 <script>
 /* Лендинг билетов: всё, что отличается от партнёрской страницы.
    Общий код и стиль берутся из index.html при сборке (tickets_build.py). */
@@ -2109,7 +2119,7 @@ safe('form',()=>{
   // плашки «Купить билет» между разделами: минимальная цена и имена спикеров из данных
   const from = (packs[0] && (packs[0].from || packs[0].price)) || '';
   $$('.tband__from').forEach(e => { e.textContent = from ? 'от ' + from : ''; });
-  const spkNames = (C.speakers || []).slice(0, 2).map(s => String(s.name).split(' ').slice(-1)[0]);
+  const spkNames = (C.speakers || []).slice(0, 4).map(s => String(s.name).split(' ').slice(-1)[0]);
   $$('.tband__spk').forEach(e => { if (spkNames.length) e.textContent = spkNames.join(', '); });
 
   // «Каждое имя — легенда»: портреты ключевых спикеров и плитка «ещё 100»
@@ -2119,6 +2129,9 @@ safe('form',()=>{
       '<b>' + esc(parts[0]) + ' <span>' + esc(parts.slice(1).join(' ')) + '</span></b>' + (s.legend ? '<small>' + esc(s.legend) + '</small>' : '') + '</a>'; }).join('') +
     '<a class="leg__more" href="#ecosystem" data-reveal><b>+100</b><span>лидеров индустрии здоровья и долголетия</span><i>Все спикеры' + arrow + '</i></a>';
   if (!legs.length) $('#legends').hidden = true;
+  // «+100» занимает оставшиеся клетки ряда (на компьютере 3 в ряд): при 4 портретах — широкая плитка на 2 клетки
+  const rest = 3 - (legs.length % 3), more = $('#legendList .leg__more');
+  if (more) { more.style.setProperty('--span', rest); more.classList.toggle('leg__more--wide', rest > 1); }
 
   // короткий выбор под «Что вы унесёте»
   $('#tpick').insertAdjacentHTML('beforeend', packs.map(p =>
