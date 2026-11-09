@@ -1290,7 +1290,7 @@ a.tix__opt{text-decoration:none;color:inherit}
   <aside class="tband" aria-label="Билеты">
     <div class="wrap">
       <div class="tband__in" data-reveal>
-        <p class="tband__t">Весь цвет индустрии — <em>в одном зале 5 декабря</em>: <span class="tband__spk">Темченко, Филяев</span> и ещё сто лидеров.</p>
+        <p class="tband__t">Весь цвет индустрии — <em>в одном зале 5 декабря</em>: <span class="tband__spk">Темченко, Филяев</span> и сто лидеров индустрии среди гостей.</p>
         <p class="tband__p">Билеты <b class="tband__from">от 6 400 ₽</b></p>
         <a class="btn btn--fill" href="#tickets" data-magnet><span>Купить билет</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg></a>
       </div>
@@ -2122,14 +2122,14 @@ safe('form',()=>{
   const spkNames = (C.speakers || []).slice(0, 4).map(s => String(s.name).split(' ').slice(-1)[0]);
   $$('.tband__spk').forEach(e => { if (spkNames.length) e.textContent = spkNames.join(', '); });
 
-  // «Каждое имя — легенда»: портреты ключевых спикеров и плитка «ещё 100»
+  // «Каждое имя — легенда»: портреты ключевых спикеров и плитка «100 лидеров индустрии в зале» (это гости, не спикеры)
   const legs = (C.speakers || []).filter(s => s.photo);
   $('#legendList').innerHTML = legs.map(s => { const parts = String(s.name).split(' ');
     return '<a class="leg__p" href="#ecosystem" data-reveal><span class="leg__ph"><img src="' + esc(s.photo) + '" alt="' + esc(s.name) + '" loading="lazy" decoding="async"></span>' +
       '<b>' + esc(parts[0]) + ' <span>' + esc(parts.slice(1).join(' ')) + '</span></b>' + (s.legend ? '<small>' + esc(s.legend) + '</small>' : '') + '</a>'; }).join('') +
-    '<a class="leg__more" href="#ecosystem" data-reveal><b>+100</b><span>лидеров индустрии здоровья и долголетия</span><i>Все спикеры' + arrow + '</i></a>';
+    '<a class="leg__more" href="#ecosystem" data-reveal><b>100</b><span>лидеров индустрии — в зале вместе с вами</span><i>Кто будет рядом' + arrow + '</i></a>';
   if (!legs.length) $('#legends').hidden = true;
-  // «+100» занимает оставшиеся клетки ряда (на компьютере 3 в ряд): при 4 портретах — широкая плитка на 2 клетки
+  // плитка «100» занимает оставшиеся клетки ряда (на компьютере 3 в ряд): при 4 портретах — широкая плитка на 2 клетки
   const rest = 3 - (legs.length % 3), more = $('#legendList .leg__more');
   if (more) { more.style.setProperty('--span', rest); more.classList.toggle('leg__more--wide', rest > 1); }
 
