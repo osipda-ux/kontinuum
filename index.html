@@ -765,6 +765,7 @@ mark.hl{text-shadow:0 0 14px var(--bg),0 0 3px var(--bg)}
 .spk__b{display:grid;gap:14px;align-content:start;padding-block:clamp(6px,1vw,14px)}
 .spk__n{font-size:clamp(32px,3.2vw,50px);line-height:1}
 .spk__n span{color:var(--accent)}
+.spk__l{font-size:clamp(16px,1.15vw,17.5px);line-height:1.5;color:var(--accent);max-width:46ch}
 .spk__r{font-size:clamp(17px,1.25vw,18.5px);line-height:1.55;color:var(--ink);max-width:46ch}
 .spk__f{list-style:none;margin:6px 0 0;padding:0;display:grid;border-top:1px solid var(--line)}
 .spk__f li{position:relative;padding:11px 0 11px 22px;border-bottom:1px solid var(--line);color:var(--ink-2);font-size:16px;line-height:1.45}
@@ -1021,7 +1022,7 @@ a.eps__t:hover{color:var(--accent)}
 .paynote a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 a.tix__opt{text-decoration:none;color:inherit}
 
-/* легенды: 4+ портретов — плитка «+100» дотягивает ряд */
+/* легенды: 4+ портретов — плитка «100 лидеров в зале» дотягивает ряд */
 .leg{align-items:center}
 @media (min-width:981px){
   .leg__more{grid-column:span var(--span,1)}
@@ -1029,6 +1030,52 @@ a.tix__opt{text-decoration:none;color:inherit}
   .leg__more--wide b{grid-row:1/3;align-self:center;font-size:clamp(72px,7vw,112px)}
   .leg__more--wide span{align-self:end;max-width:22ch;font-size:18px}
   .leg__more--wide i{align-self:start}
+}
+
+/* ═══ Спикеры: портреты-кнопки, короткий список, панель с регалиями ═══ */
+button.leg__p{all:unset;box-sizing:border-box;display:grid;gap:10px;align-content:start;cursor:pointer;color:var(--ink)}
+button.leg__p:focus-visible{outline:1px solid var(--accent);outline-offset:6px;border-radius:var(--r)}
+.leg__go{display:inline-flex;align-items:center;gap:8px;font:600 13.5px/1 var(--f-body);font-style:normal;color:var(--accent);margin-top:2px}
+.leg__go svg{width:13px;height:13px;transition:transform .25s var(--ease-out)}
+@media (hover:hover){button.leg__p:hover .leg__go svg{transform:translateX(3px)}}
+
+.spkl{display:grid;gap:10px}
+.spkl__t{font:500 clamp(24px,2vw,30px)/1.1 var(--f-display);color:var(--ink)}
+.spkl__t span{color:var(--accent);font-variant-numeric:lining-nums}
+.spkl ul{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.spkl__b{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 6px;border-bottom:1px solid var(--line);transition:background-color .25s var(--ease-out)}
+.spkl__b:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+.spkl__ph{width:56px;height:56px;border-radius:50%;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(232,205,149,.4);background:rgba(255,255,255,.04);font:500 20px/1 var(--f-display);color:var(--accent)}
+.spkl__ph img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.spkl__tx{display:grid;gap:4px;min-width:0}
+.spkl__tx b{font:500 clamp(21px,1.6vw,25px)/1.1 var(--f-display);color:var(--ink)}
+.spkl__tx b span{color:var(--accent)}
+.spkl__tx small{font-size:15px;line-height:1.45;color:var(--ink-2)}
+.spkl__go{display:inline-flex;align-items:center;gap:8px;font:600 13.5px/1 var(--f-body);font-style:normal;color:var(--accent);white-space:nowrap}
+.spkl__go svg{width:13px;height:13px;transition:transform .25s var(--ease-out)}
+@media (hover:hover){.spkl__b:hover{background:rgba(232,205,149,.05)}.spkl__b:hover .spkl__go svg{transform:translateX(3px)}}
+@media (max-width:560px){.spkl__b{grid-template-columns:48px minmax(0,1fr);gap:12px}.spkl__ph{width:48px;height:48px}.spkl__go{grid-column:2}}
+
+.spkd__top{display:grid;grid-template-columns:clamp(110px,26%,170px) minmax(0,1fr);gap:clamp(16px,2.4vw,26px);align-items:end}
+.spkd__ph{display:grid;place-items:center;aspect-ratio:4/5;border-radius:calc(var(--r) - 4px);overflow:hidden;border:1px solid rgba(232,205,149,.4);background:rgba(255,255,255,.04);font:500 44px/1 var(--f-display);color:var(--accent)}
+.spkd__ph img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.spkd h3{margin:0 0 10px;font-size:clamp(34px,4.4vw,52px);line-height:1}
+.spkd h3 span{color:var(--accent)}
+.spkd__legend{font-size:16px;line-height:1.5;color:var(--ink-2)}
+.spkd .sheet__lead{margin-top:24px}
+.spkd__h{margin:26px 0 6px;font:600 13px/1.3 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.spkd .spk__f li{font-size:16.5px;color:var(--ink)}
+.spkd .spk__q{margin-top:22px}
+.spkd__next{all:unset;box-sizing:border-box;width:100%;cursor:pointer;margin-top:14px;padding:16px 4px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center;border-top:1px solid var(--line)}
+.spkd__next span{font:600 12.5px/1.3 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.spkd__next b{grid-row:2;font:500 22px/1.15 var(--f-display);color:var(--ink)}
+.spkd__next svg{grid-row:1/3;grid-column:2;width:16px;height:16px;color:var(--accent)}
+.spkd__next:focus-visible{outline:1px solid var(--accent);outline-offset:2px}
+
+@media (max-width:980px){
+  .leg__more--odd{grid-column:auto;aspect-ratio:auto;grid-template-columns:minmax(0,1fr);align-content:space-between;gap:10px}
+  .leg__more--odd b{grid-row:auto;font-size:clamp(48px,13vw,72px)}
+  .leg__more--odd span{font-size:15px}
 }
 </style>
 
@@ -1581,6 +1628,13 @@ a.tix__opt{text-decoration:none;color:inherit}
 <div class="cur" aria-hidden="true"></div><div class="cur-dot" aria-hidden="true"></div>
 
 <!-- Подробности блока конференции -->
+<div class="sheet spkd" id="spkSheet" role="dialog" aria-modal="true" aria-labelledby="spkTitle" hidden>
+  <div class="sheet__bg" data-kclose></div>
+  <div class="sheet__panel">
+    <button class="sheet__x" type="button" data-kclose aria-label="Закрыть"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+    <div id="spkBody"></div>
+  </div>
+</div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
   <div class="sheet__bg" data-sclose></div>
   <div class="sheet__panel">
@@ -1599,7 +1653,7 @@ a.tix__opt{text-decoration:none;color:inherit}
   <button class="vmodal__x" type="button" data-close aria-label="Закрыть видео"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
 </div>
 
-<script src="content.js?v=e1cda85896"></script>
+<script src="content.js?v=32a4392dff"></script>
 <script>
 /* Лендинг билетов: всё, что отличается от партнёрской страницы.
    Общий код и стиль берутся из index.html при сборке (tickets_build.py). */
@@ -1738,9 +1792,10 @@ safe('content',()=>{
       return '<article class="spk'+(i===0?' spk--lead':'')+'" data-reveal>'+
         '<div class="spk__ph">'+(s.photo?'<img src="'+esc(s.photo)+'" alt="'+esc(s.name)+'" loading="lazy" decoding="async">':'<span class="spk__ini" aria-hidden="true">'+esc(initials(s.name))+'</span>')+'</div>'+
         '<div class="spk__b"><h3 class="spk__n">'+esc(parts[0])+(parts.length>1?' <span>'+esc(parts.slice(1).join(' '))+'</span>':'')+'</h3>'+
+        (s.legend?'<p class="spk__l">'+esc(s.legend)+'</p>':'')+
         (s.role?'<p class="spk__r">'+esc(s.role)+'</p>':'')+
         ((s.facts||[]).length?'<ul class="spk__f">'+s.facts.map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul>':'')+
-        (s.quote?'<blockquote class="spk__q">'+esc(s.quote)+(s.quoteBy?'<cite>'+esc(s.quoteBy)+'</cite>':'')+'</blockquote>':'')+
+        (s.quote&&!String(s.legend||'').includes(s.quote)?'<blockquote class="spk__q">'+esc(s.quote)+(s.quoteBy?'<cite>'+esc(s.quoteBy)+'</cite>':'')+'</blockquote>':'')+
         '</div></article>'; }).join('');
     $('#speakers').hidden=!spk.length;
   }
@@ -2123,15 +2178,59 @@ safe('form',()=>{
   $$('.tband__spk').forEach(e => { if (spkNames.length) e.textContent = spkNames.join(', '); });
 
   // «Каждое имя — легенда»: портреты ключевых спикеров и плитка «100 лидеров индустрии в зале» (это гости, не спикеры)
-  const legs = (C.speakers || []).filter(s => s.photo);
-  $('#legendList').innerHTML = legs.map(s => { const parts = String(s.name).split(' ');
-    return '<a class="leg__p" href="#ecosystem" data-reveal><span class="leg__ph"><img src="' + esc(s.photo) + '" alt="' + esc(s.name) + '" loading="lazy" decoding="async"></span>' +
-      '<b>' + esc(parts[0]) + ' <span>' + esc(parts.slice(1).join(' ')) + '</span></b>' + (s.legend ? '<small>' + esc(s.legend) + '</small>' : '') + '</a>'; }).join('') +
+  const SPK = C.speakers || [];
+  const nm = s => { const p = String(s.name).split(' '); return esc(p[0]) + (p.length > 1 ? ' <span>' + esc(p.slice(1).join(' ')) + '</span>' : ''); };
+  const ini = s => esc(String(s.name).split(/\s+/).map(w => w[0] || '').join('').slice(0, 2));
+  const legs = SPK.map((s, i) => [s, i]).filter(([s]) => s.photo).slice(0, 5);   // в «Легендах» — первые 5 с фото
+  $('#legendList').innerHTML = legs.map(([s, i]) =>
+    '<button class="leg__p" type="button" data-spk="' + i + '" aria-haspopup="dialog" data-reveal><span class="leg__ph"><img src="' + esc(s.photo) + '" alt="' + esc(s.name) + '" loading="lazy" decoding="async"></span>' +
+      '<b>' + nm(s) + '</b>' + (s.legend ? '<small>' + esc(s.legend) + '</small>' : '') + '<i class="leg__go">Регалии' + arrow + '</i></button>').join('') +
     '<a class="leg__more" href="#ecosystem" data-reveal><b>100</b><span>лидеров индустрии — в зале вместе с вами</span><i>Кто будет рядом' + arrow + '</i></a>';
   if (!legs.length) $('#legends').hidden = true;
   // плитка «100» занимает оставшиеся клетки ряда (на компьютере 3 в ряд): при 4 портретах — широкая плитка на 2 клетки
   const rest = 3 - (legs.length % 3), more = $('#legendList .leg__more');
-  if (more) { more.style.setProperty('--span', rest); more.classList.toggle('leg__more--wide', rest > 1); }
+  if (more) { more.style.setProperty('--span', rest); more.classList.toggle('leg__more--wide', rest > 1); more.classList.toggle('leg__more--odd', legs.length % 2 === 1); }   // --odd: на телефоне (2 в ряд) плитка встаёт в пустую клетку
+
+  // «Кто будет рядом с вами»: все спикеры коротким списком (имя + одна строка), регалии — по нажатию
+  const spkBox = $('#speakers');
+  if (spkBox && SPK.length) {
+    spkBox.className = 'spkl'; spkBox.hidden = false;
+    spkBox.innerHTML = '<p class="spkl__t">Спикеры <span>' + SPK.length + '</span></p><ul>' + SPK.map((s, i) =>
+      '<li><button class="spkl__b" type="button" data-spk="' + i + '" aria-haspopup="dialog">' +
+      '<span class="spkl__ph">' + (s.photo ? '<img src="' + esc(s.photo) + '" alt="" loading="lazy" decoding="async">' : ini(s)) + '</span>' +
+      '<span class="spkl__tx"><b>' + nm(s) + '</b>' + (s.legend || s.role ? '<small>' + esc(s.legend || s.role) + '</small>' : '') + '</span>' +
+      '<i class="spkl__go">Регалии' + arrow + '</i></button></li>').join('') + '</ul>';
+  }
+
+  // панель спикера: фото, регалии, цитата, «Купить билет» и переход к следующему
+  const kd = $('#spkSheet'), kb = $('#spkBody'); let kOpener = null;
+  const L = () => (typeof lenis !== 'undefined' ? lenis : null);
+  function kOpen(i) {
+    const s = SPK[i]; if (!s) return; const nx = SPK[(i + 1) % SPK.length];
+    if (kd.hidden) kOpener = document.activeElement;
+    kb.innerHTML = '<div class="spkd__top"><span class="spkd__ph">' + (s.photo ? '<img src="' + esc(s.photo) + '" alt="' + esc(s.name) + '">' : '<span>' + ini(s) + '</span>') + '</span>' +
+      '<div><h3 id="spkTitle">' + nm(s) + '</h3>' + (s.legend ? '<p class="spkd__legend">' + esc(s.legend) + '</p>' : '') + '</div></div>' +
+      (s.role ? '<p class="sheet__lead">' + esc(s.role) + '</p>' : '') +
+      ((s.facts || []).length ? '<p class="spkd__h">Регалии</p><ul class="spk__f">' + s.facts.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' : '') +
+      (s.quote && !String(s.legend || '').includes(s.quote) ? '<blockquote class="spk__q">' + esc(s.quote) + (s.quoteBy ? '<cite>' + esc(s.quoteBy) + '</cite>' : '') + '</blockquote>' : '') +
+      '<a class="btn btn--fill sheet__cta" href="#tickets"><span>Купить билет</span>' + arrow + '</a>' +
+      (SPK.length > 1 ? '<button class="spkd__next" type="button" data-spk="' + ((i + 1) % SPK.length) + '"><span>Следующий спикер</span><b>' + esc(nx.name) + '</b>' + arrow + '</button>' : '');
+    kb.parentElement.scrollTop = 0;
+    if (kd.hidden) { kd.hidden = false; document.documentElement.style.overflow = 'hidden'; if (L()) L().stop(); requestAnimationFrame(() => kd.classList.add('on')); }
+    kd.querySelector('.sheet__x').focus();
+  }
+  function kClose(go) {
+    kd.classList.remove('on'); document.documentElement.style.overflow = ''; if (L()) L().start();
+    setTimeout(() => { kd.hidden = true; }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 450);
+    if (go) { const t = $(go); setTimeout(() => L() ? L().scrollTo(t, { offset: -20, duration: 1.4 }) : t.scrollIntoView({ behavior: 'smooth' }), 60); }
+    else if (kOpener) kOpener.focus({ preventScroll: true });
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-spk]'); if (b) { kOpen(+b.dataset.spk); return; }
+    if (!kd.hidden && e.target.closest('[data-kclose]')) kClose();
+    if (!kd.hidden && e.target.closest('#spkBody .sheet__cta')) { e.preventDefault(); kClose('#tickets'); }
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !kd.hidden) kClose(); });
 
   // короткий выбор под «Что вы унесёте»
   $('#tpick').insertAdjacentHTML('beforeend', packs.map(p =>
