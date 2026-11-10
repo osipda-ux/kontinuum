@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Памятка агенту «Континуума»</title>
+<meta name="description" content="Памятка агенту «Континуума»: как получить личную ссылку, чем делиться и как покупка закрепляется за агентом.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: одна колонка ~720px; шаги — нумерованная последовательность; пакеты — три строки цены; текст приглашения с кнопкой копирования */
+  :root{
+    --bg:#04150F; --panel:#082119; --line:rgba(232,205,149,.18); --line-2:rgba(231,240,236,.14);
+    --ink:#F4F0E6; --ink-2:#C3D2CB; --ink-3:#8EA69C; --gold:#E2C48A; --gold-ink:#16110A; --warn:#F0B48E;
+    --f-display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --f-body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:740px;margin:0 auto;padding-block:40px 72px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:40px}
+  header{display:grid;gap:12px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+  .kicker{font:600 12px/1.3 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+  h1{font:500 clamp(38px,7vw,60px)/1.02 var(--f-display);margin:0;text-wrap:balance}
+  h1 em{font-style:normal;color:var(--gold)}
+  .lead{margin:0;color:var(--ink-2);font-size:17px;max-width:60ch}
+  h2{font:500 clamp(28px,4.4vw,34px)/1.1 var(--f-display);margin:0;text-wrap:balance}
+  section{display:grid;gap:14px;min-width:0}
+  p{margin:0;max-width:64ch}
+  .muted{color:var(--ink-2)}
+  a{color:var(--gold);text-underline-offset:3px}
+  .cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;background:var(--gold);color:var(--gold-ink);font:700 16px/1 var(--f-body);text-decoration:none;justify-self:start}
+  .cta:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  .steps{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line-2)}
+  .steps li{display:grid;grid-template-columns:42px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line-2)}
+  .steps b.n{font:500 28px/1 var(--f-display);color:var(--gold);font-variant-numeric:lining-nums}
+  .steps p{color:var(--ink-2)}
+  .steps strong{color:var(--ink)}
+  .packs{display:grid;border:1px solid var(--line-2);border-radius:14px;overflow:hidden}
+  .pack{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;padding:14px 16px;border-bottom:1px solid var(--line-2);background:var(--panel)}
+  .pack:last-child{border-bottom:0}
+  .pack b{font:500 24px/1.1 var(--f-display)}
+  .pack span{color:var(--ink-2);font-size:14.5px;grid-column:1}
+  .pack i{font-style:normal;grid-row:1/3;grid-column:2;align-self:center;font:600 16px/1 var(--f-body);color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .invite{display:grid;gap:10px}
+  .invite pre{margin:0;white-space:pre-wrap;font:400 15px/1.55 var(--f-body);color:var(--ink);padding:16px;border-radius:14px;border:1px dashed rgba(226,196,138,.5);background:rgba(226,196,138,.05)}
+  .btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 18px;border-radius:999px;border:1px solid rgba(226,196,138,.55);color:var(--gold);font:600 13.5px/1 var(--f-body);justify-self:start}
+  .btn:hover{background:rgba(226,196,138,.1)}
+  .btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+  .note{padding:16px 18px;border-radius:14px;border:1px solid rgba(240,180,142,.45);background:rgba(240,180,142,.07);display:grid;gap:8px}
+  .note b{color:var(--warn)}
+  ul{margin:0;padding-left:20px;display:grid;gap:8px;max-width:64ch}
+  li::marker{color:var(--gold)}
+  footer{color:var(--ink-3);font-size:13.5px;border-top:1px solid var(--line);padding-top:18px;display:grid;gap:4px}
+  footer code{color:var(--gold);font:500 14px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;user-select:all}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<style>html,body{margin:0}</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <p class="kicker">Партнёрская программа · 5 декабря 2026, Москва</p>
+    <h1>Памятка агенту <em>«Континуума»</em></h1>
+    <p class="lead">Вы приглашаете людей на «Континуум» по своей личной ссылке. Каждая покупка по ней записывается на вас, условия вознаграждения — по договорённости с организатором.</p>
+  </header>
+
+  <section aria-labelledby="h-what">
+    <h2 id="h-what">Что вы предлагаете</h2>
+    <p class="muted">5 декабря, Москва, конгресс-отель «Бородино». Днём — научная конференция о здоровье и долголетии с ведущими врачами, учёными и легендами индустрии: Максим Темченко, Надежда Журавлёва, Василий Байковский, Михаил Филяев, Андрей Захаревич. Вечером — красная дорожка и премьера второго сезона ТВ-реалити «Тело говорит».</p>
+    <div class="packs">
+      <div class="pack"><b>Импульс</b><span>Ряды 3–5, кофе-брейк, видеозапись выступлений. Можно с бизнес-бранчем или обедом.</span><i>от 6 400 ₽</i></div>
+      <div class="pack"><b>Резонанс</b><span>Места за столами во 2-м ряду, обед со спикерами, VIP-чат, welcome-pack.</span><i>18 000 ₽</i></div>
+      <div class="pack"><b>Абсолют</b><span>1-й ряд с именной табличкой, VIP-зона, минута на сцене, интервью.</span><i>50 000 ₽</i></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-start">
+    <h2 id="h-start">Как начать</h2>
+    <ol class="steps">
+      <li><b class="n">1</b><p><strong>Получите личную ссылку.</strong> Откройте страницу для агентов, введите имя, фамилию и телефон. Ссылка появится сразу, её можно скопировать или отправить в Telegram.</p></li>
+      <li><b class="n">2</b><p><strong>Отправляйте ссылку</strong> в личные сообщения, чаты, сторис и посты. По ней открывается сайт события с программой, спикерами и билетами.</p></li>
+      <li><b class="n">3</b><p><strong>Человек покупает билет на сайте</strong> — кнопкой у нужного пакета. Покупка автоматически записывается на вас.</p></li>
+    </ol>
+    <a class="cta" href="https://osipda-ux.github.io/kontinuum/agent.html" target="_blank" rel="noopener">Получить личную ссылку</a>
+  </section>
+
+  <section aria-labelledby="h-rules">
+    <h2 id="h-rules">Чтобы покупка точно записалась на вас</h2>
+    <ul>
+      <li>Человек должен <b>открыть сайт по вашей ссылке</b>. Сайт запоминает вас на 60 дней — можно вернуться и купить позже.</li>
+      <li>Покупать нужно <b>кнопкой на сайте</b>. Не пересылайте прямые ссылки на оплату из Продамуса: по ним покупка на вас не запишется.</li>
+      <li>Если человек открыл вашу ссылку на телефоне, а покупать будет с компьютера, пусть откроет вашу ссылку и на компьютере.</li>
+      <li>После оплаты человек попадает на страницу «Спасибо» и оставляет Telegram или MAX. Попросите его не пропускать этот шаг — так покупка закрепится надёжнее.</li>
+    </ul>
+    <div class="note"><p><b>Не меняйте ссылку.</b> Всё, что идёт после <code>?ref=</code>, — это ваш код. Если его стереть или исправить, покупки не запишутся на вас.</p></div>
+  </section>
+
+  <section aria-labelledby="h-text">
+    <h2 id="h-text">Готовый текст приглашения</h2>
+    <p class="muted">Скопируйте и вставьте вместо слов «ваша ссылка» свою ссылку. Тот же текст с уже подставленной ссылкой есть на странице для агентов.</p>
+    <div class="invite">
+      <pre id="invite">Приглашаю на «Континуум» — 5 декабря в Москве, конгресс-отель «Бородино».
+
+Днём — научная конференция о здоровье и долголетии с ведущими врачами, учёными и легендами индустрии. Вечером — красная дорожка и премьера второго сезона ТВ-реалити «Тело говорит».
+
+Программа, спикеры и билеты: ваша ссылка</pre>
+      <button class="btn" type="button" id="copy">Скопировать текст</button>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-reward">
+    <h2 id="h-reward">Вознаграждение</h2>
+    <p class="muted">Размер и порядок выплаты обсуждаются с организатором лично. Сколько билетов куплено по вашей ссылке и на какую сумму, организатор видит в своей таблице — спросите, и вам сообщат цифры.</p>
+  </section>
+
+  <footer>
+    <p>Вопросы — организатору, Гульнаре Мишкиной, в Telegram:</p>
+    <code>t.me/GulyaMishkina</code>
+  </footer>
+</main>
+
+<script>
+  document.getElementById('copy').addEventListener('click', function () {
+    var b = this, t = document.getElementById('invite');
+    var done = function () { b.textContent = 'Скопировано'; setTimeout(function () { b.textContent = 'Скопировать текст'; }, 1600); };
+    var select = function () { var r = document.createRange(); r.selectNodeContents(t); var s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+    if (navigator.clipboard) navigator.clipboard.writeText(t.textContent).then(done, select); else select();
+  });
+</script>
+
+</body>
+</html>
