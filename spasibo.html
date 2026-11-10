@@ -124,7 +124,9 @@
       $('.done p').innerHTML = 'Напишите, пожалуйста, организатору в <a href="https://t.me/' + (ct.telegram || 'GulyaMishkina') + '" target="_blank" rel="noopener">Telegram</a> — пришлём подтверждение участия.';
       return done();
     }
-    fetch(ct.buyersEndpoint, { method: 'POST', mode: 'no-cors', body: body })
+    // sendBeacon доставляет данные, даже если человек сразу закроет страницу; скрипт Google отвечает медленно (несколько секунд)
+    if (navigator.sendBeacon && navigator.sendBeacon(ct.buyersEndpoint, body)) return done();
+    fetch(ct.buyersEndpoint, { method: 'POST', mode: 'no-cors', body: body, keepalive: true })
       .then(done, function(){ btn.disabled = false; btn.textContent = 'Отправить ещё раз'; });
   });
 })();
