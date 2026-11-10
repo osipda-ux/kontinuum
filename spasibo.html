@@ -106,6 +106,8 @@
   if (pack) { $('#pack').textContent = '«' + pack + '»'; $('#ticket').hidden = false; }
   if (ct.telegram) $('#tgLink').href = 'https://t.me/' + ct.telegram;
   // параметры, которые Продамус может дописать к адресу возврата (номер заказа)
+  var agent = ''; try { var rs = JSON.parse(localStorage.getItem('kontinuum_ref') || 'null'); if (rs && rs.c && Date.now() - rs.t < 60 * 864e5) agent = rs.c; } catch (_) {}
+  if (agent) { var al = $('.alt'); if (al) al.hidden = true; }
   var pf = {}; q.forEach(function(v, k){ if (/^_?payform/i.test(k)) pf[k.replace(/^_/, '')] = v.slice(0, 80); });
   var form = $('#form'), btn = $('#send');
   function bad(el, on){ el.classList.toggle('err', on); return on; }
@@ -116,7 +118,7 @@
     if (e1 || e2 || e3) return;
     var body = new URLSearchParams({ source: 'thanks', name: name, phone: phone, email: (d.get('email') || '').trim(),
       telegram: (d.get('telegram') || '').trim(), max: (d.get('max') || '').trim(), pack: pack,
-      payform_id: pf.payform_id || '', payform_order: pf.payform_order_id || pf.payform_order || '' });
+      payform_id: pf.payform_id || '', payform_order: pf.payform_order_id || pf.payform_order || '', agent: agent });
     btn.disabled = true; btn.textContent = 'Отправляем…';
     var done = function(){ form.classList.add('sent'); };
     if (!ct.buyersEndpoint) {             // адрес таблицы ещё не задан — просим написать организатору (данные в ссылку не кладём)
